@@ -12,7 +12,7 @@ Then, add the following imports inside the module dependencies, in the build.gra
 
 ```
   // HISPlayer Dependencies
-  implementation(files("libs/hisplayer-sdk-0.1.0.aar"))
+  implementation(files("libs/hisplayer-sdk-1.0.0.aar"))
   implementation("androidx.media3:media3-exoplayer:1.6.1")
   implementation("androidx.media3:media3-exoplayer-hls:1.6.1")
   implementation("androidx.media3:media3-exoplayer-dash:1.6.1")
