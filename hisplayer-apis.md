@@ -13,7 +13,7 @@ The SDK exposes the following classes and enums, which are essential for integra
 ### Methods
 The `playerIndex` parameter refers to the index of the stream, based on the order of creation.
 
-* **public final void setLogLevel([LogLevel](#loglevel-enum) level)**: Sets the log verbosity level for the SDK.
+* **public final void setLogLevel([HISLogLevel](#hisloglevel-enum) level)**: Sets the log verbosity level for the SDK.
   * `level`: Specifies the log level. Possible values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
 * **public final void addStream([HISStreamProperties](#hisstreamproperties-class) stream)**: Adds a new video stream to be managed by the SDK.
@@ -47,53 +47,53 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 ### Virtual Methods (Can be overridden)
 The `eventInfo` parameter provides different details depending on the event type. Specifically, its `_stringParam` field contains a description relevant to the specific event.
 
-* **public void eventPlaybackReady([EventParams](#eventparams-class) eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
+* **public void eventPlaybackReady([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
   <!--* `eventParams._param1`: Number of tracks of the playback.-->
 
-* **public void eventPlaylistChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
+* **public void eventPlaylistChange([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
   * `eventParams._param1`: Playlist length.
 
-* **public void eventVideoSizeChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the internal video size of the current track changes.
+* **public void eventVideoSizeChange([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever the internal video size of the current track changes.
   * `eventParams._param1`: Width of the video.
   * `eventParams._param2`: Height of the video.
 
-* **public void eventPlaybackPlay([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been played.
+* **public void eventPlaybackPlay([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback has been played.
 
-* **public void eventPlaybackPause([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been paused.
+* **public void eventPlaybackPause([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback has been paused.
 
-* **public void eventPlaybackStop([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been stopped.
+* **public void eventPlaybackStop([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback has been stopped.
 
-* **public void eventPlaybackSeek([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been sought to a new time position.
+* **public void eventPlaybackSeek([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback has been sought to a new time position.
   * `eventParams._param1`: Value of the old track position in milliseconds.
   * `eventParams._param2`: Value of the new track position in milliseconds.
 
-* **public void eventVolumeChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the volume has been modified.
+* **public void eventVolumeChange([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever the volume has been modified.
   * `eventParams._param1`: New value for the volume.
 
-* **public void eventEndOfPlaylist([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playlist reaches the end of the list.
+* **public void eventEndOfPlaylist([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playlist reaches the end of the list.
 
-* **public void eventOnTrackChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the tracks of the stream have changed. This event is not triggered by the ABR feature.
+* **public void eventOnTrackChange([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever the tracks of the stream have changed. This event is not triggered by the ABR feature.
   <!--* `eventParams._param1`: Number of video tracks available.-->
   <!--* `eventParams._param2`: Number of subtitles tracks available.-->
   <!--* `eventParams._param3`: Number of audio tracks available.-->
 
-* **public void eventOnStreamRelease([EventParams](#eventparams-class) eventParams)**: This event occurs whenever a player/stream has been released.
+* **public void eventOnStreamRelease([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever a player/stream has been released.
   * `eventParams._param1`: Number of players after releasing.
 
-<!--* **public void eventTextRender(EventParams eventParams)**: This event occurs whenever a caption’s text has been generated.
+<!--* **public void eventTextRender(HISEventParams eventParams)**: This event occurs whenever a caption’s text has been generated.
   * `eventParams._param1`: The next generated caption text.-->
 
-* **public void eventAutoTransition([EventParams](#eventparams-class) eventParams)**: This event occurs when the playback has changed to the next video in the playlist automatically.
+* **public void eventAutoTransition([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs when the playback has changed to the next video in the playlist automatically.
 
-* **public void eventPlaybackBuffering([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback is buffering.
+* **public void eventPlaybackBuffering([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback is buffering.
 
-* **public void eventNetworkConnected([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
+* **public void eventNetworkConnected([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
 
-* **public void eventErrorNetworkFailed([EventParams](#eventparams-class) eventParams)**: This error occurs when the Internet connection fails.
+* **public void eventErrorNetworkFailed([HISEventParams](#hiseventparams-class) eventParams)**: This error occurs when the Internet connection fails.
 
-* **public void eventEndOfContent([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
+* **public void eventEndOfContent([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
 
-* **public void eventTimelineUpdated([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the timeline of the current video has been updated. In the case of live content this may happen every certain time during the playback. This may change the current video position value from `GetVideoPosition()`.
+* **public void eventTimelineUpdated([HISEventParams](#hiseventparams-class) eventParams)**: This event occurs whenever the timeline of the current video has been updated. In the case of live content this may happen every certain time during the playback. This may change the current video position value from `GetVideoPosition()`.
 
 ## HISStreamProperties (class)
 `HISStreamProperties` is the class that defines the required parameters for creating a video stream.
@@ -139,7 +139,7 @@ The `eventInfo` parameter provides different details depending on the event type
 * **public boolean isAutoPlay()**
 * **public [HISPlaybackStrategy](#hisplaybackstrategy-enum) getPlaybackStrategy()**
 
-## EventParams (class)
+## HISEventParams (class)
 Container class with event information:
 * **public [HISPlayerEvents](#hisplayerevents-enum) _event**: Type of event.
 * **public int _playerIndex**: Index of the stream that throw the event.
@@ -170,7 +170,7 @@ Container class with event information:
 * STOP_AFTER_END
 * LOOP
 
-## LogLevel (enum)
+## HISLogLevel (enum)
 * DEBUG
 * INFO
 * WARNING
