@@ -115,7 +115,7 @@ The `eventInfo` parameter provides different details depending on the event type
 * **public Surface getSurface()**
 * **public String getUrl()**
 * **public String getKeyServerUrl()**
-* **public HISPlayerProperties getProperties()**
+* **public <a href="#hisplaybackproperties-class" style="color: inherit; text-decoration: none;">HISPlaybackProperties</a> getProperties()**
 
 ## HISMultiStreamProperties (class)
 
