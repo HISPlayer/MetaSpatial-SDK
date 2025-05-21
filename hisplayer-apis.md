@@ -1,9 +1,13 @@
 # HISPlayer API
+The SDK exposes the following classes and enums, which are essential for integration and playback control.
 
-## HISPlayerManager
+## HISPlayerManager (class)
 The following public APIs are provided by **HISPlayerManager**:
 
 ### Constructor parameters
+cascasc
+#### Constructor parameters
+cascsac
 
 * **public Context applicationContext**: The global application context. It's recommended to use getApplicationContext() to avoid memory leaks related to activities or views.
 
