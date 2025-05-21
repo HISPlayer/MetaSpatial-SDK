@@ -111,6 +111,16 @@ The `eventInfo` parameter provides different details depending on the event type
   * `urls`: The URL pointing to the video content to be streamed.
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
+### Methods
+
+* **public final int getTotalPlayers()**: Returns the current number of active streams managed by the SDK.
+
+* **public final void play(int playerIndex)**: Starts or resumes playback of the specified stream.
+
+* **public final void pause(int playerIndex)**: Pauses playback of the specified stream.
+
+* **public final void stop(int playerIndex)**: Stops playback of the specified stream.
+
 
 ## HISMultiStreamProperties (class)
 
