@@ -23,7 +23,7 @@ Then, add the following imports inside the module dependencies, in the build.gra
 Finally, **Sync Project with Gradle Files** `Ctrl + Shift + O`
 
 ## 2. Configure HISPlayer
-All public API classes of HISPlayer are located in the com.hisplayer.sdk package.
+All public API classes of HISPlayer are located in the `com.hisplayer.sdk` package.
 You can import individual classes as needed, but for simplicity in this guide, we’ll import all of them using:
 ```
 import com.hisplayer.sdk.*
