@@ -19,3 +19,5 @@ Then, add the following imports inside the module dependencies, in the build.gra
   implementation("androidx.media3:media3-ui:1.6.1")
   implementation("org.bouncycastle:bcprov-jdk16:1.45")
 ```
+
+Finally, **Sync Project with Gradle Files** (Ctrl+Shift+O)
