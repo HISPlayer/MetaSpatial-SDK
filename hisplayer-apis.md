@@ -26,6 +26,9 @@ The following public APIs are provided by **HISPlayerManager**:
 
 
 ## Not checked yet
+## Not checked yet
+## Not checked yet
+## Not checked yet
 The following lines are from the other file.
 
 * **public List <StreamProperties> multiStreamProperties**: List of properties for multi stream. Please, don't modify this list directly, use the **AddStream** or **RemoveStream** functions instead.
