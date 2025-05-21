@@ -2,14 +2,12 @@
 The SDK exposes the following classes and enums, which are essential for integration and playback control.
 
 ## HISPlayerManager (class)
-The following public APIs are provided by **HISPlayerManager**:
+`HISPlayerManager` is the main class of the SDK. It is required to add and manage streams, and to invoke the playback control functions provided by the library.
 
-### Constructor parameters
-cascasc
-#### Constructor parameters
-cascsac
+#### Constructor
+**LibManager(applicationContext: Context, licenseKey: String)**
 
-* **public Context applicationContext**: The global application context. It's recommended to use getApplicationContext() to avoid memory leaks related to activities or views.
+* **public Context applicationContext**: The global application context. It's recommended to use `getApplicationContext()` to avoid memory leaks related to activities or views.
 
 * **public string licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
