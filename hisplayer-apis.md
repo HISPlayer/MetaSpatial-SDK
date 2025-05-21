@@ -4,10 +4,12 @@ The SDK exposes the following classes and enums, which are essential for integra
 ## HISPlayerManager (class)
 `HISPlayerManager` is the main class of the SDK. It is required to add and manage streams, and to invoke the playback control functions provided by the library.
 
+### Constructor
 * **public HISPlayerManager(Context applicationContext, String license)**: Constructor of the `HISPlayerManager` class
   * **applicationContext**: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
   * **licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
+### Methods that **cannot** be overridden
 * **public final void setLogLevel(LogLevel level)**: Sets the log verbosity level for the SDK.
   * **level**: Specifies the log level. Possible values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
@@ -47,7 +49,7 @@ The SDK exposes the following classes and enums, which are essential for integra
 
 * **public final void release()**: Releases all SDK resources and performs necessary cleanup. This should be called before the application is closed to prevent memory leaks or unexpected behavior.
 
-
+### Methods that **can** be overridden
 
 
 ### Public 
