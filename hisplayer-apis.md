@@ -8,19 +8,44 @@ The SDK exposes the following classes and enums, which are essential for integra
   * **applicationContext**: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
   * **licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
-* **public final void setLogLevel(LogLevel level)**: rellena
-  * **level**: rellena diiendo que pueden ser DEBUG, INFO, WARNING, ERROR o NONE
+* **public final void setLogLevel(LogLevel level)**: Sets the log verbosity level for the SDK.
+  * **level**: Specifies the log level. Possible values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
-* **public final void addStream(HISStreamProperties stream)**: rellena
-  * **stream**: rellena diciendo que es la configuracion del stream
+* **public final void addStream(HISStreamProperties stream)**: Adds a new video stream to be managed by the SDK.
+  * **stream**: The configuration object for a single video stream.
 
-* **public final void addMultiStreams(HISMultiStreamProperties streams)**: rellena
-  * **streams**: rellena diciendo que es la configuracion varios stream
+* **public final void addMultiStreams(HISMultiStreamProperties streams)**: Adds multiple video streams simultaneously.
+  * **streams**: The configuration object containing multiple video stream definitions.
 
-* **public final void addMultiStreams(HISMultiStreamProperties streams)**: rellena
-  * **streams**: rellena diciendo que es la configuracion varios stream
+* **public final void removeStream(int playerIndex)**: Removes a stream from the SDK.
+  * **playerIndex**: The index of the stream to be removed, based on the order in which it was added.
 
+* **public final int getTotalPlayers()**: Returns the current number of active streams managed by the SDK.
 
+* **public final void play(int playerIndex)**: Starts or resumes playback of the specified stream.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+
+* **public final void pause(int playerIndex)**: Pauses playback of the specified stream.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+
+* **public final void stop(int playerIndex)**: Stops playback of the specified stream.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+
+* **public final void seek(int playerIndex, long milliseconds)**: Seeks to the specified position in the video stream.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+  * **milliseconds**: The position to seek to, in milliseconds.
+
+* **public final long getVideoPosition(int playerIndex)**: Returns the current playback position of the stream in milliseconds.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+
+* **public final long getVideoDuration(int playerIndex)**: Returns the total duration of the video stream in milliseconds.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+
+* **public final void setVolume(int playerIndex, float volume)**: Sets the playback volume for the specified stream.
+  * **playerIndex**: The index of the stream, based on the order of creation.
+  * **volume**: A float value between `0.0` (mute) and `1.0` (maximum volume).
+
+* **public final void release()**: Releases all SDK resources and performs necessary cleanup. This should be called before the application is closed to prevent memory leaks or unexpected behavior.
 
 
 
