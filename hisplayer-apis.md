@@ -19,7 +19,7 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 * **public final void addStream([HISStreamProperties](#hisstreamproperties-class) stream)**: Adds a new video stream to be managed by the SDK.
   * `stream`: The configuration object for a single video stream.
 
-* **public final void addMultiStreams(HISMultiStreamProperties streams)**: Adds multiple video streams simultaneously.
+* **public final void addMultiStreams([HISMultiStreamProperties](#hismultistreamproperties-class) streams)**: Adds multiple video streams simultaneously.
   * `streams`: The configuration object containing multiple video stream definitions.
 
 * **public final void removeStream(int playerIndex)**: Removes a stream from the SDK.
@@ -100,7 +100,7 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ### Constructors
 
-* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, HISPlayerProperties properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
+* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
@@ -119,7 +119,7 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ## HISMultiStreamProperties (class)
 
-## HISPlayerProperties (class)
+## HISPlaybackProperties (class)
 
 ## EventParams (class)
 
