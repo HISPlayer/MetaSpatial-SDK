@@ -18,7 +18,7 @@ implementation("androidx.media3:media3-exoplayer-hls:1.7.1")
 implementation("androidx.media3:media3-exoplayer-dash:1.7.1")
 implementation("androidx.media3:media3-ui:1.7.1")
 implementation("org.bouncycastle:bcprov-jdk16:1.45")
-implementation("androidx.annotation:annotation:1.6.0")
+implementation("androidx.annotation:annotation:1.9.1")
 ```
 
 Finally, **Sync Project with Gradle Files** `Ctrl + Shift + O`.
