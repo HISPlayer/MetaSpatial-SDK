@@ -1,6 +1,6 @@
 # HISPlayer API
 
-## Public API
+## HISPlayerManager
 The following public APIs are provided by **HISPlayerManager**:
 
 ### Constructor parameters
@@ -8,6 +8,19 @@ The following public APIs are provided by **HISPlayerManager**:
 * **public Context applicationContext**: The global application context. It's recommended to use getApplicationContext() to avoid memory leaks related to activities or views.
 
 * **public string licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Public 
 
