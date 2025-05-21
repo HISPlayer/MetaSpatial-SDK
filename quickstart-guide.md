@@ -8,7 +8,7 @@ First, extract the SDK from the `.zip` file, copy the `hisplayer-sdk-version.aar
 <img src="./images/libs-folder.jpg" style="width: 350px; height: auto;">
 </p>
 
-Then, add the following dependencies inside the `dependencies` block, in the `build.gradle.kts` file.
+Then, add the following dependencies inside the `dependencies` block, in your project `build.gradle.kts` file.
 
 ```
 // HISPlayer Dependencies
