@@ -1,5 +1,5 @@
 # Quickstart Guide
-Through this guide, you will be introduced to the basic steps for setting up the playback.
+This guide introduces the basic steps required to integrate and initialize playback functionality using the SDK.
 
 ## 1. Import Package
 First, extract the SDK from the `.zip` file, copy the `hisplayer-sdk-version.aar` file and place it in your module’s libs/ directory. If that directory does not exist, create it manually.
