@@ -57,7 +57,7 @@ hisPlayerManager.setLogLevel(LogLevel.INFO)
 ### 2.1 Create HISPlayerController (Optional)
 To control the player, you only need the `HISPlayerManager` class. However, this class defines several callback functions that are triggered by specific player events. These functions can be overridden to add custom behavior depending on your app’s requirements. A list of available events is provided in the API documentation.
 
-To handle these events properly, it is highly recommended to create a `HISPlayerController` class that extends `HISPlayerManager`, as shown below:
+In order to handle event callbacks, you should create a `HISPlayerController` class that extends `HISPlayerManager`, as shown below:
 ```
 import com.hisplayer.sdk.*
 
