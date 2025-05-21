@@ -47,8 +47,8 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 ### Methods that **can** be overridden
 The `eventInfo` parameter provides different details depending on the event type. Specifically, its `_stringParam` field contains a description relevant to the specific event.
 
-* **public void eventPlaybackReady(EventParams eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions such as GetTracks before this event is triggered will provide null information.
-  * `eventParams._param1`: Number of tracks of the playback.
+* **public void eventPlaybackReady(EventParams eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
+  <!--* `eventParams._param1`: Number of tracks of the playback.-->
 
 * **public void eventPlaylistChange(EventParams eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
   * `eventParams._param1`: Playlist length.
@@ -73,15 +73,15 @@ The `eventInfo` parameter provides different details depending on the event type
 * **public void eventEndOfPlaylist(EventParams eventParams)**: This event occurs whenever an internal playlist reaches the end of the list.
 
 * **public void eventOnTrackChange(EventParams eventParams)**: This event occurs whenever the tracks of the stream have changed. This event is not triggered by the ABR feature.
-  * `eventParams._param1`: Number of video tracks available.
-  * `eventParams._param2`: Number of subtitles tracks available.
-  * `eventParams._param3`: Number of audio tracks available.
+  <!--* `eventParams._param1`: Number of video tracks available.-->
+  <!--* `eventParams._param2`: Number of subtitles tracks available.-->
+  <!--* `eventParams._param3`: Number of audio tracks available.-->
 
 * **public void eventOnStreamRelease(EventParams eventParams)**: This event occurs whenever a player/stream has been released.
   * `eventParams._param1`: Number of players after releasing.
 
-* **public void eventTextRender(EventParams eventParams)**: This event occurs whenever a caption’s text has been generated.
-  * `eventParams._param1`: The next generated caption text.
+<!--* **public void eventTextRender(EventParams eventParams)**: This event occurs whenever a caption’s text has been generated.
+  * `eventParams._param1`: The next generated caption text.-->
 
 * **public void eventAutoTransition(EventParams eventParams)**: This event occurs when the playback has changed to the next video in the playlist automatically.
 
