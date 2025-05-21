@@ -7,8 +7,8 @@ The SDK exposes the following classes and enums, which are essential for integra
 ### Constructor
 
 * **public HISPlayerManager(Context applicationContext, String license)**: Constructor of the `HISPlayerManager` class
-  * **applicationContext**: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
-  * **licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
+  * `applicationContext`: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
+  * `licenseKey`: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
 ### Methods that **cannot** be overridden
 The `playerIndex` parameter refers to the index of the stream, based on the order of creation.
@@ -96,6 +96,21 @@ The `eventInfo` parameter provides different details depending on the event type
 * **public void eventTimelineUpdated(EventParams eventParams)**: This event occurs whenever the timeline of the current video has been updated. In the case of live content this may happen every certain time during the playback. This may change the current video position value from `GetVideoPosition()`.
 
 ## HISStreamProperties (class)
+`HISStreamProperties` is the class that defines the required parameters for creating a video stream.
+
+### Constructors
+
+* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, HISPlayerProperties properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
+  * `surface`: The `Surface` where the video will be rendered.
+  * `urls`: The URL pointing to the video content to be streamed.
+  * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
+  * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
+
+* **public HISStreamProperties(Surface surface, String urls, HISPlayerProperties properties)**: Constructor of the `HISStreamProperties` class.
+  * `surface`: The `Surface` where the video will be rendered.
+  * `urls`: The URL pointing to the video content to be streamed.
+  * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
+
 
 ## HISMultiStreamProperties (class)
 
