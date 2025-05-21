@@ -165,7 +165,7 @@ Container class with event information:
 * ERROR_NETWORK_FAILED
 * END_OF_CONTENT
 * TIMELINE_UPDATED
-  
+
 ## HISPlaybackStrategy (enum)
 * STOP_AFTER_END
 * LOOP
