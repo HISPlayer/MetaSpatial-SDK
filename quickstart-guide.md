@@ -20,4 +20,4 @@ Then, add the following imports inside the module dependencies, in the build.gra
   implementation("org.bouncycastle:bcprov-jdk16:1.45")
 ```
 
-Finally, **Sync Project with Gradle Files** (Ctrl+Shift+O)
+Finally, **Sync Project with Gradle Files** `Ctrl + Shift + O`
