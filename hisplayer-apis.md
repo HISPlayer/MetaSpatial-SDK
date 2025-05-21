@@ -18,7 +18,7 @@ The SDK exposes the following classes and enums, which are essential for integra
   * **streams**: The configuration object containing multiple video stream definitions.
 
 * **public final void removeStream(int playerIndex)**: Removes a stream from the SDK.
-  * **playerIndex**: The index of the stream to be removed, based on the order in which it was added.
+  * **playerIndex**: The index of the stream, based on the order of creation.
 
 * **public final int getTotalPlayers()**: Returns the current number of active streams managed by the SDK.
 
