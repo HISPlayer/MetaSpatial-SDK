@@ -119,6 +119,14 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ## HISMultiStreamProperties (class)
 
+### Constructors
+
+* **public HISMultiStreamProperties([HISStreamProperties](#hisstreamproperties-class)[] streams)**: Constructor of the `HISMultiStreamProperties` class.
+  * `streams`: Array of HISStreamProperties.
+
+### Methods
+* **public [HISStreamProperties](#hisstreamproperties-class)[] getStreams()**
+
 ## HISPlaybackProperties (class)
 
 ## EventParams (class)
