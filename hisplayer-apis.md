@@ -119,7 +119,7 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ## HISMultiStreamProperties (class)
 
-### Constructors
+### Constructor
 
 * **public HISMultiStreamProperties([HISStreamProperties](#hisstreamproperties-class)[] streams)**: Constructor of the `HISMultiStreamProperties` class.
   * `streams`: Array of HISStreamProperties.
@@ -129,7 +129,7 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ## HISPlayerProperties (class)
 
-### Constructors
+### Constructor
 
 * **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy)**: Constructor of the `HISPlayerProperties` class.
   * `autoPlay`: Plays the video automatically once it has loaded.
