@@ -6,7 +6,7 @@ The SDK exposes the following classes and enums, which are essential for integra
 
 ### Constructor
 
-* **public HISPlayerManager(Context applicationContext, String license)**: Constructor of the `HISPlayerManager` class
+* **public HISPlayerManager(Context applicationContext, String license)**: Constructor of the `HISPlayerManager` class.
   * `applicationContext`: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
   * `licenseKey`: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
