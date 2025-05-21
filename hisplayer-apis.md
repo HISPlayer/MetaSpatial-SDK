@@ -4,12 +4,15 @@ The SDK exposes the following classes and enums, which are essential for integra
 ## HISPlayerManager (class)
 `HISPlayerManager` is the main class of the SDK. It is required to add and manage streams, and to invoke the playback control functions provided by the library.
 
-* **HISPlayerManager(applicationContext: Context, licenseKey: String)**
+* **public HISPlayerManager(Context applicationContext, String license)**
 
   * **applicationContext**: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
 
   * **licenseKey**: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
+* **public final void setLogLevel(LogLevel level)**
+
+ *  
 
 
 
