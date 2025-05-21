@@ -2,7 +2,7 @@
 This guide introduces the basic steps required to integrate and initialize playback functionality using the SDK.
 
 ## 1. Import Package
-First, extract the SDK from the `.zip` file, copy the `hisplayer-sdk-version.aar` file and place it in your module’s libs/ directory. If that directory does not exist, create it manually.
+First, extract the SDK from the `.zip` file, copy the `hisplayer-sdk-version.aar` file and place it in your project module’s libs/ directory. If that directory does not exist, create it manually.
 
 <p align="center">
 <img src="./images/libs-folder.jpg" style="width: 350px; height: auto;">
@@ -33,7 +33,7 @@ import com.hisplayer.sdk.*
 `HISPlayerManager` is the central class used to control the player.
 It provides all the necessary functionality for managing playback and interacting with the player.
 
-This class can be declared as a `lateinit` variable and initialized later in your application. To initialize it, you must provide the `applicationContext` and a valid license key. If the license key is invalid or missing, an exception will be thrown during initialization.
+This class can be declared as a `lateinit` variable and initialized later in your application. To initialize it, you must provide the `applicationContext` and a valid license key that you receive from HISPlayer. If you don't receive license key, please contact HISPlayer support. If the license key is invalid or missing, an exception will be thrown during initialization.
 
 ```
 lateinit var hisPlayerManager: HISPlayerManager
