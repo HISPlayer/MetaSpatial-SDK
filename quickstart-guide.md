@@ -97,7 +97,7 @@ val stream = HISStreamProperties(
 hisPlayerController.addStream(stream)
 ```
 
-Once the stream is created, you can use the playback control functions provided by the API, such as `libManager.play(0)` or `libManager.pause(0)`.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
 
 All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
 
