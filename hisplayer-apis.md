@@ -115,7 +115,7 @@ The `eventInfo` parameter provides different details depending on the event type
 * **public Surface getSurface()**
 * **public String getUrl()**
 * **public String getKeyServerUrl()**
-* **public <a href="#hisplaybackproperties-class" style="color: inherit; text-decoration: none;">HISPlaybackProperties</a> getProperties()**
+* **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
 
 ## HISMultiStreamProperties (class)
 
@@ -127,10 +127,57 @@ The `eventInfo` parameter provides different details depending on the event type
 ### Methods
 * **public [HISStreamProperties](#hisstreamproperties-class)[] getStreams()**
 
-## HISPlaybackProperties (class)
+## HISPlayerProperties (class)
+
+### Constructors
+
+* **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy)**: Constructor of the `HISPlayerProperties` class.
+  * `autoPlay`: Plays the video automatically once it has loaded.
+  * `playbackStrategy`: Behavior when video playback is terminated.
+
+### Methods
+* **public boolean isAutoPlay()**
+* **public [HISPlaybackStrategy](#hisplaybackstrategy-enum) getPlaybackStrategy()**
 
 ## EventParams (class)
+Container class with event information:
+* **public HISPlayerEvents _event**: Type of event.
+* **public int _playerIndex**: Index of the stream that throw the event.
+* **public float _param1, _param2, param3, param4**: Parameters with values that may vary depending on the type of event.
+* **public String _stringParam**: Description of the event and the parameters being used.
 
+## HISPlayerEvents (enum)
+```
+    PLAYBACK_READY(0),
+    PLAYLIST_CHANGE(1),
+    VIDEO_SIZE_CHANGE(2),
+    PLAYBACK_PLAY(3),
+    PLAYBACK_PAUSE(4),
+    PLAYBACK_STOP(5),
+    PLAYBACK_SEEK(6),
+    VOLUME_CHANGE(7),
+    END_OF_PLAYLIST(8),
+    ON_TRACK_CHANGE(9),
+    ON_STREAM_RELEASE(10),
+    TEXT_RENDER(11),
+    AUTO_TRANSITION(12),
+    PLAYBACK_BUFFERING(13),
+    NETWORK_CONNECTED(14),
+    ERROR_NETWORK_FAILED(15),
+    END_OF_CONTENT(20),
+    TIMELINE_UPDATED(21);
+```
 ## HISPlaybackStrategy (enum)
+```
+    STOP_AFTER_END(0),
+    LOOP(1);
+```
 
 ## LogLevel (enum)
+```
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    NONE
+```
