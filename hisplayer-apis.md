@@ -47,53 +47,53 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 ### Methods that **can** be overridden
 The `eventInfo` parameter provides different details depending on the event type. Specifically, its `_stringParam` field contains a description relevant to the specific event.
 
-* **public void eventPlaybackReady(EventParams eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
+* **public void eventPlaybackReady([EventParams](#eventparams-class) eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
   <!--* `eventParams._param1`: Number of tracks of the playback.-->
 
-* **public void eventPlaylistChange(EventParams eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
+* **public void eventPlaylistChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
   * `eventParams._param1`: Playlist length.
 
-* **public void eventVideoSizeChange(EventParams eventParams)**: This event occurs whenever the internal video size of the current track changes.
+* **public void eventVideoSizeChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the internal video size of the current track changes.
   * `eventParams._param1`: Width of the video.
   * `eventParams._param2`: Height of the video.
 
-* **public void eventPlaybackPlay(EventParams eventParams)**: This event occurs whenever an internal playback has been played.
+* **public void eventPlaybackPlay([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been played.
 
-* **public void eventPlaybackPause(EventParams eventParams)**: This event occurs whenever an internal playback has been paused.
+* **public void eventPlaybackPause([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been paused.
 
-* **public void eventPlaybackStop(EventParams eventParams)**: This event occurs whenever an internal playback has been stopped.
+* **public void eventPlaybackStop([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been stopped.
 
-* **public void eventPlaybackSeek(EventParams eventParams)**: This event occurs whenever an internal playback has been sought to a new time position.
+* **public void eventPlaybackSeek([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback has been sought to a new time position.
   * `eventParams._param1`: Value of the old track position in milliseconds.
   * `eventParams._param2`: Value of the new track position in milliseconds.
 
-* **public void eventVolumeChange(EventParams eventParams)**: This event occurs whenever the volume has been modified.
+* **public void eventVolumeChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the volume has been modified.
   * `eventParams._param1`: New value for the volume.
 
-* **public void eventEndOfPlaylist(EventParams eventParams)**: This event occurs whenever an internal playlist reaches the end of the list.
+* **public void eventEndOfPlaylist([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playlist reaches the end of the list.
 
-* **public void eventOnTrackChange(EventParams eventParams)**: This event occurs whenever the tracks of the stream have changed. This event is not triggered by the ABR feature.
+* **public void eventOnTrackChange([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the tracks of the stream have changed. This event is not triggered by the ABR feature.
   <!--* `eventParams._param1`: Number of video tracks available.-->
   <!--* `eventParams._param2`: Number of subtitles tracks available.-->
   <!--* `eventParams._param3`: Number of audio tracks available.-->
 
-* **public void eventOnStreamRelease(EventParams eventParams)**: This event occurs whenever a player/stream has been released.
+* **public void eventOnStreamRelease([EventParams](#eventparams-class) eventParams)**: This event occurs whenever a player/stream has been released.
   * `eventParams._param1`: Number of players after releasing.
 
 <!--* **public void eventTextRender(EventParams eventParams)**: This event occurs whenever a caption’s text has been generated.
   * `eventParams._param1`: The next generated caption text.-->
 
-* **public void eventAutoTransition(EventParams eventParams)**: This event occurs when the playback has changed to the next video in the playlist automatically.
+* **public void eventAutoTransition([EventParams](#eventparams-class) eventParams)**: This event occurs when the playback has changed to the next video in the playlist automatically.
 
-* **public void eventPlaybackBuffering(EventParams eventParams)**: This event occurs whenever an internal playback is buffering.
+* **public void eventPlaybackBuffering([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback is buffering.
 
-* **public void eventNetworkConnected(EventParams eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
+* **public void eventNetworkConnected([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
 
-* **public void eventErrorNetworkFailed(EventParams eventParams)**: This error occurs when the Internet connection fails.
+* **public void eventErrorNetworkFailed([EventParams](#eventparams-class) eventParams)**: This error occurs when the Internet connection fails.
 
-* **public void eventEndOfContent(EventParams eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
+* **public void eventEndOfContent([EventParams](#eventparams-class) eventParams)**: This event occurs whenever an internal playback reaches the end of the video content.
 
-* **public void eventTimelineUpdated(EventParams eventParams)**: This event occurs whenever the timeline of the current video has been updated. In the case of live content this may happen every certain time during the playback. This may change the current video position value from `GetVideoPosition()`.
+* **public void eventTimelineUpdated([EventParams](#eventparams-class) eventParams)**: This event occurs whenever the timeline of the current video has been updated. In the case of live content this may happen every certain time during the playback. This may change the current video position value from `GetVideoPosition()`.
 
 ## HISStreamProperties (class)
 `HISStreamProperties` is the class that defines the required parameters for creating a video stream.
@@ -141,43 +141,38 @@ The `eventInfo` parameter provides different details depending on the event type
 
 ## EventParams (class)
 Container class with event information:
-* **public HISPlayerEvents _event**: Type of event.
+* **public [HISPlayerEvents](#hisplayerevents-enum) _event**: Type of event.
 * **public int _playerIndex**: Index of the stream that throw the event.
 * **public float _param1, _param2, param3, param4**: Parameters with values that may vary depending on the type of event.
 * **public String _stringParam**: Description of the event and the parameters being used.
 
 ## HISPlayerEvents (enum)
-```
-    PLAYBACK_READY(0),
-    PLAYLIST_CHANGE(1),
-    VIDEO_SIZE_CHANGE(2),
-    PLAYBACK_PLAY(3),
-    PLAYBACK_PAUSE(4),
-    PLAYBACK_STOP(5),
-    PLAYBACK_SEEK(6),
-    VOLUME_CHANGE(7),
-    END_OF_PLAYLIST(8),
-    ON_TRACK_CHANGE(9),
-    ON_STREAM_RELEASE(10),
-    TEXT_RENDER(11),
-    AUTO_TRANSITION(12),
-    PLAYBACK_BUFFERING(13),
-    NETWORK_CONNECTED(14),
-    ERROR_NETWORK_FAILED(15),
-    END_OF_CONTENT(20),
-    TIMELINE_UPDATED(21);
-```
+* PLAYBACK_READY
+* PLAYLIST_CHANGE
+* VIDEO_SIZE_CHANGE
+* PLAYBACK_PLAY
+* PLAYBACK_PAUSE
+* PLAYBACK_STOP
+* PLAYBACK_SEEK
+* VOLUME_CHANGE
+* END_OF_PLAYLIST
+* ON_TRACK_CHANGE
+* ON_STREAM_RELEASE
+* TEXT_RENDER
+* AUTO_TRANSITION
+* PLAYBACK_BUFFERING
+* NETWORK_CONNECTED
+* ERROR_NETWORK_FAILED
+* END_OF_CONTENT
+* TIMELINE_UPDATED
+  
 ## HISPlaybackStrategy (enum)
-```
-    STOP_AFTER_END(0),
-    LOOP(1);
-```
+* STOP_AFTER_END
+* LOOP
 
 ## LogLevel (enum)
-```
-    DEBUG,
-    INFO,
-    WARNING,
-    ERROR,
-    NONE
-```
+* DEBUG
+* INFO
+* WARNING
+* ERROR
+* NONE
