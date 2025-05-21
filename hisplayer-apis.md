@@ -16,7 +16,7 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 * **public final void setLogLevel(LogLevel level)**: Sets the log verbosity level for the SDK.
   * `level`: Specifies the log level. Possible values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
-* **public final void addStream(HISStreamProperties stream)**: Adds a new video stream to be managed by the SDK.
+* **public final void addStream([HISStreamProperties](##hisstreamproperties) stream)**: Adds a new video stream to be managed by the SDK.
   * `stream`: The configuration object for a single video stream.
 
 * **public final void addMultiStreams(HISMultiStreamProperties streams)**: Adds multiple video streams simultaneously.
