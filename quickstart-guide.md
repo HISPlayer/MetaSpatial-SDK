@@ -47,6 +47,12 @@ try {
     hisPlayerManager = HISPlayerManager(this, "licenseKey")
 }
 catch (e: Exception) {
-    Log.e(TAG, "Error creating HISPlayerManager")
+    Log.e(TAG, "Error creating HISPlayerManager, license key is invalid")
 }
+```
+
+Once the class is instantiated, you can specify the desired log level: `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
+
+```
+hisPlayerManager.setLogLevel(LogLevel.INFO)
 ```
