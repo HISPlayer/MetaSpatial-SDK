@@ -13,7 +13,7 @@ The SDK exposes the following classes and enums, which are essential for integra
 ### Methods that **cannot** be overridden
 The `playerIndex` parameter refers to the index of the stream, based on the order of creation.
 
-* **public final void setLogLevel(LogLevel level)**: Sets the log verbosity level for the SDK.
+* **public final void setLogLevel([LogLevel](#loglevel-enum) level)**: Sets the log verbosity level for the SDK.
   * `level`: Specifies the log level. Possible values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
 * **public final void addStream([HISStreamProperties](#hisstreamproperties-class) stream)**: Adds a new video stream to be managed by the SDK.
@@ -106,7 +106,7 @@ The `eventInfo` parameter provides different details depending on the event type
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
-* **public HISStreamProperties(Surface surface, String urls, HISPlayerProperties properties)**: Constructor of the `HISStreamProperties` class.
+* **public HISStreamProperties(Surface surface, String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
