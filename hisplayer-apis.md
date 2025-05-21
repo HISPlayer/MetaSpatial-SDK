@@ -143,7 +143,7 @@ The `eventParams` parameter provides different details depending on the event ty
 Container class with event information:
 * **public [HISPlayerEvents](#hisplayerevents-enum) _event**: Type of event.
 * **public int _playerIndex**: Index of the stream that throw the event.
-* **public float _param1, _param2, param3, param4**: Parameters with values that may vary depending on the type of event.
+* **public float _param1, _param2, _param3, _param4**: Parameters with values that may vary depending on the type of event.
 * **public String _stringParam**: Description of the event and the parameters being used.
 
 ## HISPlayerEvents (enum)
