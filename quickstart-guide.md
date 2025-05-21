@@ -24,8 +24,7 @@ implementation("androidx.annotation:annotation:1.6.0")
 Finally, **Sync Project with Gradle Files** `Ctrl + Shift + O`.
 
 ## 2. Configure HISPlayer
-All public API classes of HISPlayer are located in the `com.hisplayer.sdk` package.
-You can import individual classes as needed, but for simplicity in this guide, we’ll import all of them using:
+All public API classes of HISPlayer are located in the `com.hisplayer.sdk` package. You can import individual classes as needed, but for simplicity in this guide, we’ll import all of them using:
 
 ```
 import com.hisplayer.sdk.*
@@ -34,9 +33,7 @@ import com.hisplayer.sdk.*
 `HISPlayerManager` is the central class used to control the player.
 It provides all the necessary functionality for managing playback and interacting with the player.
 
-This class can be declared as a `lateinit` variable and initialized later in your application.
-To initialize it, you must provide the `applicationContext` and a valid license key.
-If the license key is invalid or missing, an exception will be thrown during initialization.
+This class can be declared as a `lateinit` variable and initialized later in your application. To initialize it, you must provide the `applicationContext` and a valid license key. If the license key is invalid or missing, an exception will be thrown during initialization.
 
 ```
 lateinit var hisPlayerManager: HISPlayerManager
@@ -56,3 +53,26 @@ Once the class is instantiated, you can specify the desired log level: `DEBUG`, 
 ```
 hisPlayerManager.setLogLevel(LogLevel.INFO)
 ```
+
+### 2.1 Create HISPlayerController (Optional)
+To control the player, you only need the `HISPlayerManager` class. However, this class defines several callback functions that are triggered by specific player events. These functions can be overridden to add custom behavior depending on your app’s requirements. A list of available events is provided in the API documentation.
+
+For better structure and maintainability, it is highly recommended to create a `HISPlayerController` class that extends `HISPlayerManager`, as shown below:
+```
+import com.hisplayer.sdk.*
+
+/**
+ * This is an example of how to expand the functionalities of HISPlayerManager
+ */
+class HISPlayerController(context: Context, license: String) :
+    HISPlayerManager(context, license) {
+
+    // Example of override function
+    override fun eventPlaybackPlay(event: EventParams?) {
+        super.eventPlaybackPause(event)
+        Log.d(TAG, "The video has started playing")
+    }
+}
+```
+
+Then, in your application code, use `HISPlayerController` instead of `HISPlayerManager` directly.
