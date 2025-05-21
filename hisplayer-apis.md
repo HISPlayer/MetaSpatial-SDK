@@ -10,7 +10,7 @@ The SDK exposes the following classes and enums, which are essential for integra
   * `applicationContext`: The global application context. It is recommended to use `getApplicationContext()` to avoid memory leaks caused by passing activity or view contexts.
   * `licenseKey`: License key for making the SDK works. If license key is not valid, an exception will be thrown.
 
-### Methods that **cannot** be overridden
+### Methods
 The `playerIndex` parameter refers to the index of the stream, based on the order of creation.
 
 * **public final void setLogLevel([LogLevel](#loglevel-enum) level)**: Sets the log verbosity level for the SDK.
@@ -44,7 +44,7 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 
 * **public final void release()**: Releases all SDK resources and performs necessary cleanup. This should be called before the application is closed to prevent memory leaks or unexpected behavior.
 
-### Methods that **can** be overridden
+### Virtual Methods (Can be overridden)
 The `eventInfo` parameter provides different details depending on the event type. Specifically, its `_stringParam` field contains a description relevant to the specific event.
 
 * **public void eventPlaybackReady([EventParams](#eventparams-class) eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions before this event is triggered will provide null information.
