@@ -22,7 +22,7 @@ val stream = HISStreamProperties(
         HISPlaybackStrategy.LOOP                                            // PlaybackStrategy
     )
 )
-hisPlayerController.addStream(stream)
+hisPlayerManager.addStream(stream)
 ```
 
 Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
