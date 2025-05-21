@@ -48,7 +48,7 @@ The `playerIndex` parameter refers to the index of the stream, based on the orde
 The `eventInfo` parameter provides different details depending on the event type. Specifically, its `_stringParam` field contains a description relevant to the specific event.
 
 * **public void eventPlaybackReady(EventParams eventParams)**: This event occurs when the current playback of a stream is ready to be used. Calling functions such as GetTracks before this event is triggered will provide null information.
-  * **eventParams._param1**: Number of tracks of the playback.
+  * `**eventParams._param1**`: Number of tracks of the playback.
 
 * **public void eventPlaylistChange(EventParams eventParams)**: This event occurs whenever the current playlist has been modified. It could happen when an URL has been added or deleted.
   * **eventParams._param1**: Playlist length.
