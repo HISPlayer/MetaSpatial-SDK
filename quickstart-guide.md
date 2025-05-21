@@ -2,7 +2,7 @@
 Through this guide, you will be introduced to the basic steps for setting up the playback.
 
 ## 1. Import Package
-First, extract the SDK from the .zip file, copy the **hisplayer-sdk-version.aar** file, and paste it into the **~/ProjectName/ModuleName/libs/** directory in your project. If that directory doesn’t exist, create one.
+First, extract the SDK from the .zip file, copy the `hisplayer-sdk-version.aar` file, and paste it into the **~/ProjectName/ModuleName/libs/** directory in your project. If that directory doesn’t exist, create one.
 
 <p align="center">
 <img src="./images/libs-folder.jpg" style="width: 350px; height: auto;">
@@ -58,6 +58,7 @@ hisPlayerManager.setLogLevel(LogLevel.INFO)
 To control the player, you only need the `HISPlayerManager` class. However, this class defines several callback functions that are triggered by specific player events. These functions can be overridden to add custom behavior depending on your app’s requirements. A list of available events is provided in the API documentation.
 
 In order to handle event callbacks, you should create a `HISPlayerController` class that extends `HISPlayerManager`, as shown below:
+
 ```
 import com.hisplayer.sdk.*
 
@@ -76,3 +77,26 @@ class HISPlayerController(context: Context, license: String) :
 ```
 
 Then, in your application code, use `HISPlayerController` instead of `HISPlayerManager` directly.
+
+### 3. Create a Stream
+To create a stream, you need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
+
+The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
+
+Here's an example:
+
+```
+val stream = HISStreamProperties(
+    surface,
+    "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+    HISPlayerProperties(
+        true,                       // Autoplay (Boolean)
+        HISPlaybackStrategy.LOOP    // PlaybackStrategy
+    )
+)
+hisPlayerController.addStream(stream)
+```
+
+Once the stream is created, you can use the playback control functions provided by the API, such as `libManager.play(0)` or `libManager.pause(0)`.
+
+All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
