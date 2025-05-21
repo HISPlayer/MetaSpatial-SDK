@@ -78,7 +78,7 @@ class HISPlayerController(context: Context, license: String) :
 
 Then, in your application code, use `HISPlayerController` instead of `HISPlayerManager` directly.
 
-### 3. Create a Stream
+## 3. Create a Stream
 To create a stream, you need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
 
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
@@ -100,3 +100,6 @@ hisPlayerController.addStream(stream)
 Once the stream is created, you can use the playback control functions provided by the API, such as `libManager.play(0)` or `libManager.pause(0)`.
 
 All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
+
+## 4. Release HISPlayer
+It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.
