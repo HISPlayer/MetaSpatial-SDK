@@ -15,4 +15,4 @@ HISPlayer is the most advanced video streaming player for **Meta Spatial SDK**, 
 
 <br>
 
-## [GET META SPATIAL SDK DEMO HERE!](hisplayer.com/demo-meta-spatial-sdk/)
+## [GET META SPATIAL SDK DEMO HERE!](https://hisplayer.com/demo-meta-spatial-sdk/)
