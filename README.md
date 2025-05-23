@@ -9,7 +9,7 @@ HISPlayer is the most advanced video streaming player for **Meta Spatial SDK**, 
 
 ## 🚀 HISPlayer Video Hosting Platform 🚀 
 >
->HISPlayer allows you to upload and host any local video files on your HISPlayer account, converting them into HLS and DASH streaming URLs. You can stream all these videos using HISPlayer Meta Spatial SDK into mixed reality apps for Meta Quest. **[Start your FREE trial here!](https://hisplayer.com/unity-asset-store-saas-registration/)**
+>HISPlayer allows you to upload and host any local video files on your HISPlayer account, converting them into HLS and DASH streaming URLs. You can stream all these videos using HISPlayer Meta Spatial SDK into mixed reality apps for Meta Quest. **[Start your FREE trial here!](https://dashboard.hisplayer.com/signup)**
 >
 > We can help you with the full **end-to-end** delivery and playback.
 
