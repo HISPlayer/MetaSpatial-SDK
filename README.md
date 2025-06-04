@@ -1,6 +1,6 @@
 # MetaSpatial SDK
 
-HISPlayer is the most advanced video streaming player for **Meta Spatial SDK**, supporting local, VOD, and live content. It enables top quality HLS and DASH video streaming performance inside your mixed reality apps for Meta Quest. We include advanced features such as Widevine DRM, multistream or automatic bitrate adaptation to secure the best video quality.
+HISPlayer is the most advanced video streaming player for **Meta Spatial SDK**, supporting local, VOD, and live content. It enables top quality HLS and DASH video streaming performance inside your mixed reality apps for Meta Quest. We include advanced features such as DRM content protection, multistream or automatic bitrate adaptation to secure the best video quality.
 
 
 ## [Documentation:](https://hisplayer.github.io/MetaSpatial-SDK/#/)
