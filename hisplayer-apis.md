@@ -39,8 +39,46 @@ The `playerId` parameter refers to the index of the stream, based on the order o
 
 * **public final long getVideoDuration(int playerId)**: Returns the total duration of the video stream in milliseconds.
 
+* **public final float getVolume(int playerId)**: Returns the audio volume of the video stream.
+
 * **public final void setVolume(int playerId, float volume)**: Sets the playback volume for the specified stream.
   * `volume`: A float value between `0.0` (mute) and `1.0` (maximum volume).
+
+* **public final boolean isPlaying(int playerId)**: Returns whether the video is playing.
+
+* **public final boolean isBuffering(int playerId)**: Returns whether the video is buffering.
+
+* **public final boolean isLive(int playerId)**: Returns whether the video stream is live.
+
+* **public final long getSpeedRate(int playerId)**: Returns the speed rate of the video stream.
+
+* **public final void setSpeedRate(int playerId, float speed)**: Sets the playback speed rate for the specified stream.
+  * `speed`: A float value must be greater than `0.0`, default value is `1.0` (normal speed).
+
+* **public final List<HISPlayerVideoTrack> getVideoTracks(int playerId)**: Provides the list of the video tracks of the current video playback. Refer to **HISPlayerVideoTrack** class.
+
+* **public final int getVideoTrackCount(int playerId)**: Get the number of tracks of a certain stream.
+
+* **public final void setVideoTrack(int playerId, int trackIndex)**: Select a certain track of a certain stream to be used as the main track. This action will disable ABR, to enable it again you can use **enableABR** API. The possible tracks can be obtained from the tracks returned from the method **getVideoTracks**.
+  * `trackIndex`: Index of the track to be selected.
+
+* **public final void enableABR(int playerId)**: Enables the ABR to change automatically between tracks.
+
+* **public final void disableABR(int playerId)**: Disables the ABR to prevent the player from changing tracks regardless of bandwidth.
+
+* **public final void setMaxBitrate(int playerId, int bitrate)**: Set a new maximum bitrate (in bits per second) of a specific track. This doesn’t disable ABR. The possible tracks can be obtained from the tracks returned from the method **getVideoTracks**.
+  * `bitrate`: The new maximum bitrate.
+
+* **public final void setMinBitrate(int playerId, int bitrate)**: Set a new minimum bitrate (in bits per second) of a specific track. This doesn’t disable ABR. The possible tracks can be obtained from the tracks returned from the method **getVideoTracks**.
+  * `bitrate`: The new minimum bitrate.
+
+* **public final void setStreamSynchronization(int mainId, int followerId)**: Link the main video stream playback and the follower video stream playback. The follower stream will be synchronized following the main stream. If playback controls (Play, Pause, Stop, Seek, SetSpeedRate) are applied to the main stream, it will be applied to the follower stream as well. In case of multistreams, this API needs to be called for every follower stream.
+  * `mainId`: The id of the main video.
+  * `followerId`: The id of the follower video.
+
+* **public final void unsetStreamSynchronization(int mainId, int followerId)**: Unlink the main video stream playback and the follower video stream playback. The follower stream will be unsynchronized from the main stream. In case of multistreams, this API needs to be called for every follower stream.
+  * `mainId`: The id of the main video.
+  * `followerId`: The id of the follower video.
 
 * **public final void release()**: Releases all SDK resources and performs necessary cleanup. This should be called before the application is closed to prevent memory leaks or unexpected behavior.
 
