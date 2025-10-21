@@ -12,7 +12,7 @@ Then, add the following dependencies inside the `dependencies` block, in your pr
 
 ```
 // HISPlayer Dependencies
-implementation(files("libs/hisplayer-sdk-1.0.0.aar"))
+implementation(files("libs/hisplayer-sdk-1.1.0.aar"))
 implementation("androidx.media3:media3-exoplayer:1.7.1")
 implementation("androidx.media3:media3-exoplayer-hls:1.7.1")
 implementation("androidx.media3:media3-exoplayer-dash:1.7.1")
