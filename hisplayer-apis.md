@@ -72,11 +72,11 @@ The `playerId` parameter refers to the index of the stream, based on the order o
 * **public final void setMinBitrate(int playerId, int bitrate)**: Set a new minimum bitrate (in bits per second) of a specific track. This doesn’t disable ABR. The possible tracks can be obtained from the tracks returned from the method **getVideoTracks**.
   * `bitrate`: The new minimum bitrate.
 
-* **public final void setStreamSynchronization(int mainId, int followerId)**: Link the main video stream playback and the follower video stream playback. The follower stream will be synchronized following the main stream. If playback controls (Play, Pause, Stop, Seek, SetSpeedRate) are applied to the main stream, it will be applied to the follower stream as well. In case of multistreams, this API needs to be called for every follower stream.
+* **public final void setStreamSynchronization(int mainId, int followerId)**: Link the main video stream playback and the follower video stream playback for synchronization. The follower stream will be synchronized following the main stream. If playback controls (Play, Pause, Stop, Seek, SetSpeedRate) are applied to the main stream, it will be applied to the follower stream as well. In case of multistreams, this API needs to be called for every follower stream.
   * `mainId`: The id of the main video.
   * `followerId`: The id of the follower video.
 
-* **public final void unsetStreamSynchronization(int mainId, int followerId)**: Unlink the main video stream playback and the follower video stream playback. The follower stream will be unsynchronized from the main stream. In case of multistreams, this API needs to be called for every follower stream.
+* **public final void unsetStreamSynchronization(int mainId, int followerId)**: Unlink the main video stream playback and the follower video stream playback synchronization. The follower stream will be unsynchronized from the main stream. In case of multistreams, this API needs to be called for every follower stream.
   * `mainId`: The id of the main video.
   * `followerId`: The id of the follower video.
 
