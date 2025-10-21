@@ -131,14 +131,10 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructor
 
-* **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy)**: Constructor of the `HISPlayerProperties` class.
+* **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy, int maxBitrate)**: Constructor of the `HISPlayerProperties` class.
   * `autoPlay`: Plays the video automatically once it has loaded.
   * `playbackStrategy`: Behavior when video playback is terminated.
- 
- * **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy, int maxBitrate)**: Constructor of the `HISPlayerProperties` class.
-  * `autoPlay`: Plays the video automatically once it has loaded.
-  * `playbackStrategy`: Behavior when video playback is terminated.
-  * `maxBitrate`: Set the maximum bitrate of the video.
+  * `maxBitrate`: Set the maximum bitrate of the video. This is optional, can be left empty.
 
 ### Methods
 * **public boolean isAutoPlay()**
