@@ -142,10 +142,19 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ## HISEventParams (class)
 Container class with event information:
-* **public [HISPlayerEvents](#hisplayerevents-enum) _event**: Type of event.
+* **public [HISPlayerEvents](#hisplayerevents-enum) event**: Type of event.
 * **public int playerId**: Index of the stream that throw the event.
 * **public float param1, param2, param3, param4**: Parameters with values that may vary depending on the type of event.
 * **public String stringParam**: Description of the event and the parameters being used.
+
+## HISPlayerVideoTrack (class)
+Container class with video track information:
+* **public int trackIndex**: Index of the track.
+* **public String id**: Id of the track.
+* **public int width**: Width of the track.
+* **public int height**: Height of the track.
+* **public int bitrate**: Bitrate of the track.
+* **public float framerate**: Framerate of the track.
 
 ## HISPlayerEvents (enum)
 * PLAYBACK_READY
