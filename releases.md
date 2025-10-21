@@ -2,7 +2,7 @@
 
 ### Version 1.1.0
 ##### October 21, 2025
-- [Improvement] Changed playerIndex with playerId for multistreams.
+- [Added] DRM Widevine L1 support.
 - [Added] getVolume (int playerId): Return the audio volume of the video.
 - [Added] isPlaying(int playerId): Returns whether the video is playing.
 - [Added] isBuffering(int playerId): Returns whether the video is buffering.
@@ -20,6 +20,7 @@
 - [Added] unsetStreamSynchronization(int mainId, int followerId): Unlink the main video stream playback and the follower video stream playback synchronization.
 - [Added] HISPlayerVideoTrack class
 - [Added] maxBitrate optional parameter in HISPlayerProperties.
+- [Improvement] Changed playerIndex with playerId for multistreams.
 
 ### Version 1.0.0
 ##### May 21, 2025
