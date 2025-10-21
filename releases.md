@@ -17,8 +17,9 @@
 - [Added] setMaxBitrate(int playerId, int bitrate): Set a new maximum bitrate (in bits per second) of a specific track. 
 - [Added] setMinBitrate(int playerId, int bitrate): Set a new minimum bitrate (in bits per second) of a specific track. 
 - [Added] setStreamSynchronization(int mainId, int followerId): Link the main video stream playback and the follower video stream playback for synchronization. 
-- [Added] unsetStreamSynchronization(int mainId, int followerId): Unlink the main video stream playback and the follower video stream playback for synchronization.
+- [Added] unsetStreamSynchronization(int mainId, int followerId): Unlink the main video stream playback and the follower video stream playback synchronization.
 - [Added] HISPlayerVideoTrack class
+- [Added] maxBitrate optional parameter in HISPlayerProperties.
 
 ### Version 1.0.0
 ##### May 21, 2025
