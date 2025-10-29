@@ -101,5 +101,49 @@ Once the stream is created, you can use the playback control functions provided 
 
 All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
 
-## 4. Release HISPlayer
+## 4. Create a Stream and MediaPanel Entity
+To create as stream and MediaPanel to display video, you need to use the `HISPlayerStreamEntityProperties` class, which requires MediaPanel properties, a stream URL, and a `HISPlayerProperties` instance.
+The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
+
+Here's an example:
+
+```
+val streamProperty = HISStreamEntityProperties(
+        "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+        HISPlayerProperties(
+            content.autoPlay,
+            HISPlaybackStrategy.LOOP,
+            0,
+            1000000,
+        )
+    )
+
+val playerEntity = hisPlayer?.addStreamWithEntity(
+    content.key,
+    streamProperty,
+    HISPlayerVideoShapeTypes.Rectilinear,
+    HISPlayerStereoTypes.None,
+    size,
+    position,
+    rotation,
+    true,
+    content.fishEyeFOV ?: 1.0f) {
+        if (content.syncContentKey != null) {
+        hisPlayer?.setVolume(content.key, 0.0f)
+        }
+    }
+    
+playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
+```
+
+## 4. FishEye Video Play
+To play FishEye Video, use `HISPlayerVideoShapeTypes.FishEye180` or `HISPlayerVideoShapeTypes.FishEye360` for `shapeType` parameter of `addStreamWithEntity` function.
+
+Each FishEye video has different camera calibration so user should set `fishEyeFOV` parameter correctly to watch video correctly when you call `addStreamWithEntity` function.
+
+If video shows whole cicle then use `fishEyeFOV` value as 1.0. if video is cropped then use smaller value.
+You can change `fishEyeFOV` value while playing with `HISPlayerEntity.setFishEyeFOV()` function.
+
+
+## 5. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.

@@ -19,8 +19,19 @@ The `playerId` parameter refers to the index of the stream, based on the order o
 * **public final void addStream(int playerId, [HISStreamProperties](#hisstreamproperties-class) stream)**: Adds a new video stream to be managed by the SDK.
   * `stream`: The configuration object for a single video stream.
 
-* **public final void addMultiStreams([HISMultiStreamProperties](#hismultistreamproperties-class) streams)**: Adds multiple video streams simultaneously.
-  * `streams`: The configuration object containing multiple video stream definitions.
+* **public final void addStreamWithEntity(int playerId, [HISStreamEntityProperties](#hisstreamentityproperties-class) stream, [HISPlayerVideoShapeTypes](#hisplayervideoshapetypes-enum) shapeType, [HISPlayerStereoTypes](#hisplayerstereotypes-enum) stereoMode, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, () -> Unit onComplete)**: Adds a new video stream and Media Panel to be managed by the SDK.
+  * `stream`: The configuration object for a single video stream.
+  * `shapeType`: MediaPanel type.
+  * `stereoMode`: Stereoscopic video type.
+  * `size`: Panel size in the scene (meter unit)
+  * `position`: Initial Panel position
+  * `rotation`: Initial Panel rotation for each axis
+  * `show`: Initial Panel show status
+  * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer 
+
+<!-- * **public final void addMultiStreams([HISMultiStreamProperties](#hismultistreamproperties-class) streams)**: Adds multiple video streams simultaneously.
+  * `streams`: The configuration object containing multiple video stream definitions. -->
 
 * **public final void removeStream(int playerId)**: Removes a stream from the SDK.
 
@@ -155,15 +166,66 @@ The `eventParams` parameter provides different details depending on the event ty
 * **public String getKeyServerUrl()**
 * **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
 
-## HISMultiStreamProperties (class)
+## HISStreamEntityProperties (class)
+`HISStreamEntityProperties` is the class that defines the required parameters for creating a video stream and Media Panel Entity.
+
+### Constructors
+
+* **public HISStreamEntityProperties(String urls, String keyServerUrls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
+  * `urls`: The URL pointing to the video content to be streamed.
+  * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
+  * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
+
+* **public HISStreamEntityProperties(String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
+  * `urls`: The URL pointing to the video content to be streamed.
+  * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
+
+### Methods
+* **public Surface getSurface()**
+* **public String getUrl()**
+* **public String getKeyServerUrl()**
+* **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
+
+## HISPlayerEntity (class)
 
 ### Constructor
 
-* **public HISMultiStreamProperties([HISStreamProperties](#hisstreamproperties-class)[] streams)**: Constructor of the `HISMultiStreamProperties` class.
-  * `streams`: Array of HISStreamProperties.
+* **public HISPlayerEntity(int playerId, [HISPlayerManager](#hisplayermanager-class) hisPlayer, [HISPlayerStreamEntityProperties](#hisplayerstreamentityproperties-class) stream, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, ()->Unit onComplete )**: Constructor of the `HISPlayerEntity` class.
+  * `hisPlayer`: HISPlayerManager instance.
+  * `stream`: The configuration object for a single video stream.
+  * `shapeType`: MediaPanel type.
+  * `stereoMode`: Stereoscopic video type.
+  * `size`: Panel size in the scene (meter unit)
+  * `position`: Initial Panel position
+  * `rotation`: Initial Panel rotation for each axis
+  * `show`: Initial Panel show status
+  * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer
 
 ### Methods
-* **public [HISStreamProperties](#hisstreamproperties-class)[] getStreams()**
+* **public static void create(int playerId, [HISPlayerManager](#hisplayermanager-class) hisPlayer, [HISPlayerStreamEntityProperties](#hisplayerstreamentityproperties-class) stream, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, ()->Unit onComplete)**:
+Static function to create HISPlayerEntity instance.
+  * `hisPlayer`: HISPlayerManager instance.
+  * `stream`: The configuration object for a single video stream.
+  * `shapeType`: MediaPanel type.
+  * `stereoMode`: Stereoscopic video type.
+  * `size`: Panel size in the scene (meter unit)
+  * `position`: Initial Panel position
+  * `rotation`: Initial Panel rotation for each axis
+  * `show`: Initial Panel show status
+  * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer
+* **public void setVideoResolution(Float width, Float height)**:
+Adjust Media Panel's aspect ration based on video width and height.
+  * `width`: video width
+  * `height`: video height
+
+* **public void setFishEyeFOV(Float param)**:
+Set FishEye Shader FOV parameter.
+  * `param`: fishEye FOV value. range from 0.0 to 1.0
+
+* **public void destroy()**:
+Destroy Media Panel
 
 ## HISPlayerProperties (class)
 
@@ -193,6 +255,21 @@ Container class with video track information:
 * **public int height**: Height of the track.
 * **public int bitrate**: Bitrate of the track.
 * **public float framerate**: Framerate of the track.
+
+## HISPlayerVideoShapeTypes (enum)
+* Rectilinear: Rectangle Video
+* Equirect180: VR180 Video
+* Equirect360: VR360 Video
+* FishEye180: FishEye 180 Video
+* FishEye360: FishEye 360 Video
+
+## HISPlayerStereoTypes (enum)
+* None
+* LeftRight
+* UpDown
+* MonoLeft
+* MonoUp
+
 
 ## HISPlayerEvents (enum)
 * PLAYBACK_READY
