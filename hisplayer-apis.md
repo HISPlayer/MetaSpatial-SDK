@@ -149,10 +149,11 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructors
 
-* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
+* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, String drmSecurityLevel, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
+  * `drmSecurityLevel`: DRM security level force to use. ("L1" : Widevine L1, "L3" : Widevine L3)
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
 * **public HISStreamProperties(Surface surface, String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class.
@@ -171,9 +172,10 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructors
 
-* **public HISStreamEntityProperties(String urls, String keyServerUrls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
+* **public HISStreamEntityProperties(String urls, String keyServerUrls, String drmSecurityLevel, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
+  * `drmSecurityLevel`: DRM security level force to use. ("L1" : Widevine L1, "L3" : Widevine L3)
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
 * **public HISStreamEntityProperties(String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
@@ -185,6 +187,20 @@ The `eventParams` parameter provides different details depending on the event ty
 * **public String getUrl()**
 * **public String getKeyServerUrl()**
 * **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
+
+
+## HISPlayerProperties (class)
+
+### Constructor
+
+* **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy, int maxBitrate)**: Constructor of the `HISPlayerProperties` class.
+  * `autoPlay`: Plays the video automatically once it has loaded.
+  * `playbackStrategy`: Behavior when video playback is terminated.
+  * `maxBitrate`: Set the maximum bitrate of the video. This is optional, can be left empty.
+
+### Methods
+* **public boolean isAutoPlay()**
+* **public [HISPlaybackStrategy](#hisplaybackstrategy-enum) getPlaybackStrategy()**
 
 ## HISPlayerEntity (class)
 
@@ -203,7 +219,7 @@ The `eventParams` parameter provides different details depending on the event ty
   * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer
 
 ### Methods
-* **public static void create(int playerId, [HISPlayerManager](#hisplayermanager-class) hisPlayer, [HISPlayerStreamEntityProperties](#hisplayerstreamentityproperties-class) stream, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, ()->Unit onComplete)**:
+* **public static void create(int playerId, [HISPlayerManager](#hisplayermanager-class) hisPlayer, [HISStreamEntityProperties](#hisstreamentityproperties-class) stream, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, ()->Unit onComplete)**:
 Static function to create HISPlayerEntity instance.
   * `hisPlayer`: HISPlayerManager instance.
   * `stream`: The configuration object for a single video stream.
@@ -226,19 +242,6 @@ Set FishEye Shader FOV parameter.
 
 * **public void destroy()**:
 Destroy Media Panel
-
-## HISPlayerProperties (class)
-
-### Constructor
-
-* **public HISPlayerProperties(boolean autoPlay, [HISPlaybackStrategy](#hisplaybackstrategy-enum) playbackStrategy, int maxBitrate)**: Constructor of the `HISPlayerProperties` class.
-  * `autoPlay`: Plays the video automatically once it has loaded.
-  * `playbackStrategy`: Behavior when video playback is terminated.
-  * `maxBitrate`: Set the maximum bitrate of the video. This is optional, can be left empty.
-
-### Methods
-* **public boolean isAutoPlay()**
-* **public [HISPlaybackStrategy](#hisplaybackstrategy-enum) getPlaybackStrategy()**
 
 ## HISEventParams (class)
 Container class with event information:
