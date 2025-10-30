@@ -149,11 +149,11 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructors
 
-* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, String drmSecurityLevel, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
+* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, Pair<String, String> drmToken, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
-  * `drmSecurityLevel`: DRM security level force to use. ("L1" : Widevine L1, "L3" : Widevine L3)
+  * `drmToken`: custom HTTP header parameter for DRM license key request
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
 * **public HISStreamProperties(Surface surface, String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class.
@@ -172,10 +172,10 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructors
 
-* **public HISStreamEntityProperties(String urls, String keyServerUrls, String drmSecurityLevel, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
+* **public HISStreamEntityProperties(String urls, String keyServerUrls, Pair<String, String> drmToken, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
-  * `drmSecurityLevel`: DRM security level force to use. ("L1" : Widevine L1, "L3" : Widevine L3)
+  * `drmToken`: custom HTTP header parameter for DRM license key request
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
 * **public HISStreamEntityProperties(String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
