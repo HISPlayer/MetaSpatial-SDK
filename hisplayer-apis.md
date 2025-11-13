@@ -50,6 +50,8 @@ The `playerId` parameter refers to the index of the stream, based on the order o
 
 * **public final long getVideoDuration(int playerId)**: Returns the total duration of the video stream in milliseconds.
 
+* **public final Pair<long, long> getSeekableRange(int playerId)**: Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
+
 * **public final float getVolume(int playerId)**: Returns the audio volume of the video stream.
 
 * **public final void setVolume(int playerId, float volume)**: Sets the playback volume for the specified stream.
