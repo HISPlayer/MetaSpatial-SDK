@@ -99,7 +99,7 @@ val streamProperty = HISStreamEntityProperties(
     )
 
 val playerEntity = hisPlayer?.addStreamWithEntity(
-    content.key,
+    playerId,
     streamProperty,
     HISPlayerVideoShapeTypes.Rectilinear,
     HISPlayerStereoTypes.None,
@@ -108,15 +108,15 @@ val playerEntity = hisPlayer?.addStreamWithEntity(
     rotation,
     true,
     content.fishEyeFOV ?: 1.0f) {
-        if (content.syncContentKey != null) {
-        hisPlayer?.setVolume(content.key, 0.0f)
+        if (content.syncContentId != null) {
+        hisPlayer?.setVolume(playerId, 0.0f)
         }
     }
     
 playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
 ```
-The API takes the playerId as their first parameter (`content.key` in above example). If an invalid Id is passed, the method will throw an error.
-Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(content.key)` or `hisPlayerManager.pause(content.key)`.
+The API takes the playerId as their first parameter (`playerId` in above example). If an invalid Id is passed, the method will throw an error.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(playerId)` or `hisPlayerManager.pause(playerId)`.
 
 ### Create a Stream Without MediaPanel
 The SDK will create a stream without automatically creating MediaPanel, you need to create the MediaPanel on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
@@ -134,11 +134,11 @@ val stream = HISStreamProperties(
         HISPlaybackStrategy.LOOP    // PlaybackStrategy
     )
 )
-hisPlayerManager.addStream(content.key, stream)
+hisPlayerManager.addStream(playerId, stream)
 ```
 
-The API takes the playerId as their first parameter (`content.key` in above example). If an invalid Id is passed, the method will throw an error.
-Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(content.key)` or `hisPlayerManager.pause(content.key)`.
+The API takes the playerId as their first parameter. If an invalid Id is passed, the method will throw an error.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(playerId)` or `hisPlayerManager.pause(playerId)`.
 
 ## 4. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.
