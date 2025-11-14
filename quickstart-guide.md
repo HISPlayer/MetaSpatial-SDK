@@ -101,5 +101,40 @@ Once the stream is created, you can use the playback control functions provided 
 
 All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
 
+## 4. Create a Stream and MediaPanel Entity
+To create as stream and MediaPanel to display video, you need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, stream URL, and `HISPlayerProperties` instance.
+The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
+
+Here's an example:
+
+```
+val streamProperty = HISStreamEntityProperties(
+        "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+        HISPlayerProperties(
+            content.autoPlay,
+            HISPlaybackStrategy.LOOP,
+            0,
+            1000000,
+        )
+    )
+
+val playerEntity = hisPlayer?.addStreamWithEntity(
+    content.key,
+    streamProperty,
+    HISPlayerVideoShapeTypes.Rectilinear,
+    HISPlayerStereoTypes.None,
+    size,
+    position,
+    rotation,
+    true,
+    content.fishEyeFOV ?: 1.0f) {
+        if (content.syncContentKey != null) {
+        hisPlayer?.setVolume(content.key, 0.0f)
+        }
+    }
+    
+playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
+```
+
 ## 4. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.
