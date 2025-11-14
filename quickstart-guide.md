@@ -117,7 +117,7 @@ playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
 ```
 
 ### Create a Stream Without MediaPanel
-The SDK will create a stream without automatically creating MediaPanel entity, you need to create the MediaPanel entity on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
+The SDK will create a stream without automatically creating MediaPanel, you need to create the MediaPanel on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
 
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
 
