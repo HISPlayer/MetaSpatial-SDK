@@ -82,7 +82,7 @@ So our SDK provide an API to retrieve seekable range via `getSeekableRange(int p
 
 When you call seek you should set seek point within seekable range. If you call outside of seekable range then adjust seek point internally. So seek result can be different from requested point.
 
-And current play position is out of seekable range then we recommand to seek within seekable range.
+And if current play position is out of seekable range, then we recommend to seek within seekable range.
 
 This is the sample code included at our sample app.
 
