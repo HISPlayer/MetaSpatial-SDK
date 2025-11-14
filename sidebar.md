@@ -3,4 +3,5 @@
 - [HISPlayer API](/hisplayer-apis.md)
 - [DRM](/drm.md)
 - [FishEye](/fishEye.md)
+- [Multistream Synchronization](/MultiStreamSync.md)
 - [Releases](/releases.md)

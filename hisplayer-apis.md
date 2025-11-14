@@ -19,16 +19,16 @@ The `playerId` parameter refers to the index of the stream, based on the order o
 * **public final void addStream(int playerId, [HISStreamProperties](#hisstreamproperties-class) stream)**: Adds a new video stream to be managed by the SDK.
   * `stream`: The configuration object for a single video stream.
 
-* **public final void addStreamWithEntity(int playerId, [HISStreamEntityProperties](#hisstreamentityproperties-class) stream, [HISPlayerVideoShapeTypes](#hisplayervideoshapetypes-enum) shapeType, [HISPlayerStereoTypes](#hisplayerstereotypes-enum) stereoMode, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, () -> Unit onComplete)**: Adds a new video stream and Media Panel to be managed by the SDK.
+* **public final [HISPlayerEntity](#hisplayerentity-class) addStreamWithEntity(int playerId, [HISStreamEntityProperties](#hisstreamentityproperties-class) stream, [HISPlayerVideoShapeTypes](#hisplayervideoshapetypes-enum) shapeType, [HISPlayerStereoTypes](#hisplayerstereotypes-enum) stereoMode, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, () -> Unit onComplete)**: Adds a new video stream and Media Panel to be managed by the SDK.
   * `stream`: The configuration object for a single video stream.
   * `shapeType`: MediaPanel type.
   * `stereoMode`: Stereoscopic video type.
-  * `size`: Panel size in the scene (meter unit)
-  * `position`: Initial Panel position
-  * `rotation`: Initial Panel rotation for each axis
-  * `show`: Initial Panel show status
+  * `size`: Panel size in the scene. (meter unit)
+  * `position`: Initial Panel position.
+  * `rotation`: Initial Panel rotation for each axis.
+  * `show`: Initial Panel show status.
   * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
-  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer 
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer.
 
 <!-- * **public final void addMultiStreams([HISMultiStreamProperties](#hismultistreamproperties-class) streams)**: Adds multiple video streams simultaneously.
   * `streams`: The configuration object containing multiple video stream definitions. -->
@@ -151,14 +151,14 @@ The `eventParams` parameter provides different details depending on the event ty
 
 ### Constructors
 
-* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, @Nullable Pair<String, String> drmToken, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
+* **public HISStreamProperties(Surface surface, String urls, String keyServerUrls, @Nullable Pair<String, String> drmToken, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamProperties` class when DRM is to be used.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content.
   * `drmToken`: custom HTTP header parameter for DRM license key request. (Optional)
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
-* **public HISStreamProperties(Surface surface, String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamProperties` class.
+* **public HISStreamProperties(Surface surface, String urls, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamProperties` class.
   * `surface`: The `Surface` where the video will be rendered.
   * `urls`: The URL pointing to the video content to be streamed.
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
@@ -167,20 +167,20 @@ The `eventParams` parameter provides different details depending on the event ty
 * **public Surface getSurface()**
 * **public String getUrl()**
 * **public String getKeyServerUrl()**
-* **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
+* **public [HISPlaybackStrategy](#hisplaybackstrategy-enum) getPlaybackStrategy()**
 
 ## HISStreamEntityProperties (class)
 `HISStreamEntityProperties` is the class that defines the required parameters for creating a video stream and Media Panel Entity.
 
 ### Constructors
 
-* **public HISStreamEntityProperties(String urls, String keyServerUrls, @Nullable Pair<String, String> drmToken, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
+* **public HISStreamEntityProperties(String urls, String keyServerUrls, @Nullable Pair<String, String> drmToken, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content. 
   * `drmToken`: custom HTTP header parameter for DRM license key request. (Optional)
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
-* **public HISStreamEntityProperties(String urls, [HISPlaybackProperties](#hisplaybackproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
+* **public HISStreamEntityProperties(String urls, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
   * `urls`: The URL pointing to the video content to be streamed.
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
@@ -188,7 +188,7 @@ The `eventParams` parameter provides different details depending on the event ty
 * **public Surface getSurface()**
 * **public String getUrl()**
 * **public String getKeyServerUrl()**
-* **public [HISPlaybackProperties](#hisplaybackproperties-class) getProperties()**
+* **public [HISPlayerProperties](#hisplayerproperties-class) getProperties()**
 
 
 ## HISPlayerProperties (class)
@@ -213,12 +213,12 @@ The `eventParams` parameter provides different details depending on the event ty
   * `stream`: The configuration object for a single video stream.
   * `shapeType`: MediaPanel type.
   * `stereoMode`: Stereoscopic video type.
-  * `size`: Panel size in the scene (meter unit)
-  * `position`: Initial Panel position
-  * `rotation`: Initial Panel rotation for each axis
-  * `show`: Initial Panel show status
+  * `size`: Panel size in the scene. (meter unit)
+  * `position`: Initial Panel position.
+  * `rotation`: Initial Panel rotation for each axis.
+  * `show`: Initial Panel show status.
   * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
-  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer.
 
 ### Methods
 * **public static void create(int playerId, [HISPlayerManager](#hisplayermanager-class) hisPlayer, [HISStreamEntityProperties](#hisstreamentityproperties-class) stream, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, ()->Unit onComplete)**:
@@ -227,23 +227,23 @@ Static function to create HISPlayerEntity instance.
   * `stream`: The configuration object for a single video stream.
   * `shapeType`: MediaPanel type.
   * `stereoMode`: Stereoscopic video type.
-  * `size`: Panel size in the scene (meter unit)
-  * `position`: Initial Panel position
-  * `rotation`: Initial Panel rotation for each axis
-  * `show`: Initial Panel show status
+  * `size`: Panel size in the scene. (meter unit)
+  * `position`: Initial Panel position.
+  * `rotation`: Initial Panel rotation for each axis.
+  * `show`: Initial Panel show status.
   * `fishEyeFOV`: FishEye transform fov parameter. (0.0 ~ 1.0)
-  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer
+  * `onComplete`: Callback for completion of create Media Panel and addStream to HISPlayer.
 * **public void setVideoResolution(Float width, Float height)**:
 Adjust Media Panel's aspect ration based on video width and height.
-  * `width`: video width
-  * `height`: video height
+  * `width`: video width.
+  * `height`: video height.
 
 * **public void setFishEyeFOV(Float param)**:
 Set FishEye Shader FOV parameter.
-  * `param`: fishEye FOV value. range from 0.0 to 1.0
+  * `param`: fishEye FOV value. range from 0.0 to 1.0.
 
 * **public void destroy()**:
-Destroy Media Panel
+Destroy Media Panel.
 
 ## HISEventParams (class)
 Container class with event information:
