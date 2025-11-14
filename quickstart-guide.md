@@ -99,7 +99,7 @@ val streamProperty = HISStreamEntityProperties(
     )
 
 val playerEntity = hisPlayer?.addStreamWithEntity(
-    playerId,
+    content.playerId,
     streamProperty,
     HISPlayerVideoShapeTypes.Rectilinear,
     HISPlayerStereoTypes.None,
@@ -109,7 +109,7 @@ val playerEntity = hisPlayer?.addStreamWithEntity(
     true,
     content.fishEyeFOV ?: 1.0f) {
         if (content.syncContentId != null) {
-        hisPlayer?.setVolume(playerId, 0.0f)
+        hisPlayer?.setVolume(content.playerId, 0.0f)
         }
     }
     
