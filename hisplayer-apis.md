@@ -177,7 +177,7 @@ The `eventParams` parameter provides different details depending on the event ty
 * **public HISStreamEntityProperties(String urls, String keyServerUrls, @Nullable Pair<String, String> drmToken, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class when DRM is to be used.
   * `urls`: The URL pointing to the video content to be streamed.
   * `keyServerUrls`: The DRM license server URL required to retrieve decryption keys for protected content. 
-  * `drmToken`: custom HTTP header parameter for DRM license key request. (Optional)
+  * `drmToken`: Custom HTTP header parameter for DRM license key request. (Optional)
   * `properties`: An instance of `HISPlayerProperties` defining playback settings such as autoplay or playback strategy.
 
 * **public HISStreamEntityProperties(String urls, [HISPlayerProperties](#hisplayerproperties-class) properties)**: Constructor of the `HISStreamEntityProperties` class.
