@@ -1,20 +1,20 @@
 # Multistream Synchronization
 
-## How to Play Multiple Streams and synchronize each other.
+## How to Play Multiple Streams and Synchronize Each Other.
 HISPlayer supports multiple streams and each stream can synchronize with another stream.
 
 You can add multiple streams by calling `addStream` or `addStreamWithEntity` api multiple times.
-And if you want to synchronize one stream to another stream you can set by `setStreamSynchronization(int rootId, int followerId)`.
-Stream with followerId will be synched by rootId stream. 
-Multiple streams can be synchronized by one root stream.
-If streams are synchronized by root stream then their will play same play positions and pause and seek process will be followd by root stream.
+And if you want to synchronize one stream to another stream you can set `setStreamSynchronization(int rootId, int followerId)`.
+Stream with followerId will be synched to follow the rootId stream.
+Multiple streams can be synchronized to follow one root stream.
+If streams are synchronized to follow the root stream, then they will play the same play positions, pause and seek process will follow the root stream.
 
 If root stream is VOD content then all follower streams should be VOD too.
-Root stream is Live content then all follower streams should be Live too.
+If root stream is Live content ,then all follower streams should be Live too.
 
 For Live streams, playing time will be synchronized by Unix epoch time.
 
-If you clear synchronization you can call `unsetStreamSynchronization(int rootId, int followerId)`.
+If you want to clear synchronization, you can call `unsetStreamSynchronization(int rootId, int followerId)`.
 
 This is the sample 
 
@@ -74,9 +74,9 @@ hisPlayer?.unsetStreamSynchronization(
 )
 ```    
 
-## Live stream seek.
+## Live Stream Seek
 Each live stream has different live window(playable live content segment).
-Commonly seekable range is same as live window range.
+Commonly seekable range is the same as live window range.
 But if multiple streams are synchronized then seekable range will be affected by each stream's live window.
 So our SDK provide an API to retrieve seekable range via `getSeekableRange(int playerId)`.
 
