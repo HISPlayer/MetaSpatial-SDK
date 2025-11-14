@@ -2,7 +2,7 @@
 
 ### Version 1.2.0
 ##### November 14, 2025
-- [Added] Support FishEye180 video playback.
+- [Added] Support FishEye video playback.
 - [Added] addStreamWithEntity API: Adds a new video stream and Media Panel to be managed by the SDK.
 - [Added] getSeekableRange (int playerId) : Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
 - [Added] drmToken parameter in HISStreamProperties: custom HTTP header parameter for DRM license key request. (Optional)
