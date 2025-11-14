@@ -115,6 +115,8 @@ val playerEntity = hisPlayer?.addStreamWithEntity(
     
 playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
 ```
+The API takes the playerId as their first parameter (`content.key` in above example). If an invalid Id is passed, the method will throw an error.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(content.key)` or `hisPlayerManager.pause(content.key)`.
 
 ### Create a Stream Without MediaPanel
 The SDK will create a stream without automatically creating MediaPanel, you need to create the MediaPanel on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
@@ -132,12 +134,11 @@ val stream = HISStreamProperties(
         HISPlaybackStrategy.LOOP    // PlaybackStrategy
     )
 )
-hisPlayerManager.addStream(stream)
+hisPlayerManager.addStream(content.key, stream)
 ```
 
-Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
-
-All of these functions take the playerId as their first parameter. If an invalid Id is passed, the method will throw an error.
+The API takes the playerId as their first parameter (`content.key` in above example). If an invalid Id is passed, the method will throw an error.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(content.key)` or `hisPlayerManager.pause(content.key)`.
 
 ## 4. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.
