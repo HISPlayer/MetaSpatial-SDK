@@ -2,12 +2,12 @@
 
 ### Version 1.2.0
 ##### November 14, 2025
-- [Added] Support FishEye180 video play.
-- [Added] addStreamWithEntity(int playerId, HISStreamEntityProperties stream, HISPlayerVideoShapeTypes shapeType, HISPlayerStereoTypes stereoMode, float size, Vector3 position, Vector3 rotation, Boolean show, float fishEyeFOV, () -> Unit onComplete): Adds a new video stream and Media Panel to be managed by the SDK.
-- [Addes] getSeekableRange (int playerId) : Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
-- [Improvement] Add drmToken parameter in HISStreamProperties: custom HTTP header parameter for DRM license key request. (Optional)
-- [Improvement] Improved stability of Live Multistream Synchronization.
-- [Improvement] Improve playback control APIs when Multistreaming synchronization is not used.
+- [Added] Support FishEye180 video playback.
+- [Added] addStreamWithEntity API: Adds a new video stream and Media Panel to be managed by the SDK.
+- [Added] getSeekableRange (int playerId) : Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
+- [Added] drmToken parameter in HISStreamProperties: custom HTTP header parameter for DRM license key request. (Optional)
+- [Improvement] Improved stability of Live Multistream Synchronization based on server's real time.
+- [Improvement] Improved playback control APIs when Multistreaming synchronization is not used.
 
 ### Version 1.1.0
 ##### October 21, 2025
