@@ -1,5 +1,13 @@
 # HISPlayer Meta Spatial SDK Release Notes
 
+### Version 1.2.0
+##### November 14, 2025
+- [Added] Support FishEye180 video play.
+- [Added] Media Panel Entity Creation : With HISStreamEntityProperties class, define Panel Entity to display video.
+- [Addes] getSeekableRange (int playerId) : Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
+- [Improvement] Add drmToken parameter in HISStreamProperties: custom HTTP header parameter for DRM license key request. (Optional)
+- [Improvement] Improved stability of Live Multistream Synchronization.
+
 ### Version 1.1.0
 ##### October 21, 2025
 - [Added] DRM Widevine L1 support.
