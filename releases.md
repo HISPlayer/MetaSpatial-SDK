@@ -7,7 +7,7 @@
 - [Addes] getSeekableRange (int playerId) : Returns the seekable range of the video stream in milliseconds. Return's first value is minimum seekable value and second is maximum seekable value.
 - [Improvement] Add drmToken parameter in HISStreamProperties: custom HTTP header parameter for DRM license key request. (Optional)
 - [Improvement] Improved stability of Live Multistream Synchronization.
-- [Improvement] Fix the issue that Play/Pause/Seek and ETC APIs are not working at SDK 1.1.0 when user didn't start Multistreaming Sync.
+- [Improvement] Improve playback control APIs when Multistreaming synchronization is not used.
 
 ### Version 1.1.0
 ##### October 21, 2025
