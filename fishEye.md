@@ -3,9 +3,9 @@
 ## How to Play FishEye Video
 To play FishEye Video, use `HISPlayerVideoShapeTypes.FishEye180` or `HISPlayerVideoShapeTypes.FishEye360` for `shapeType` parameter of `addStreamWithEntity` function.
 
-Each FishEye video has different camera calibration so user should set `fishEyeFOV` parameter correctly to watch video correctly when you call `addStreamWithEntity` function.
+Each FishEye video has different camera calibration, so user should set `fishEyeFOV` parameter correctly to watch video correctly when you call `addStreamWithEntity` function.
 
-If video shows whole cicle then use `fishEyeFOV` value as 1.0. If video is cropped then use smaller value.
+If video shows whole circle, then use `fishEyeFOV` value as 1.0. If video is cropped then use smaller value.
 You can change `fishEyeFOV` value while playing the video with `HISPlayerEntity.setFishEyeFOV()` function.
 
 HISPlayer supports Widevie L3 DRM for FishEye video.
