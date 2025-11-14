@@ -79,30 +79,10 @@ class HISPlayerController(context: Context, license: String) :
 Then, in your application code, use `HISPlayerController` instead of `HISPlayerManager` directly.
 
 ## 3. Create a Stream
-To create a stream, you need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
+To create a stream you can choose below 2 options:
 
-The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
-
-Here's an example:
-
-```
-val stream = HISStreamProperties(
-    surface,
-    "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
-    HISPlayerProperties(
-        true,                       // Autoplay (Boolean)
-        HISPlaybackStrategy.LOOP    // PlaybackStrategy
-    )
-)
-hisPlayerManager.addStream(stream)
-```
-
-Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
-
-All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
-
-## 4. Create a Stream and MediaPanel Entity
-To create as stream and MediaPanel to display video, you need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, stream URL, and `HISPlayerProperties` instance.
+### Create a Stream with MediaPanel Entity
+The SDK will create a stream and automatically create a MediaPanel to display video. You need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, stream URL, and `HISPlayerProperties` instance.
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
 
 Here's an example:
@@ -135,6 +115,29 @@ val playerEntity = hisPlayer?.addStreamWithEntity(
     
 playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
 ```
+
+### Create a Stream Without MediaPanel
+The SDK will create a stream without automatically creating MediaPanel entity, you need to create the MediaPanel entity on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
+
+The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
+
+Here's an example:
+
+```
+val stream = HISStreamProperties(
+    surface,
+    "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+    HISPlayerProperties(
+        true,                       // Autoplay (Boolean)
+        HISPlaybackStrategy.LOOP    // PlaybackStrategy
+    )
+)
+hisPlayerManager.addStream(stream)
+```
+
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
+
+All of these functions take the playerId as their first parameter. If an invalid Id is passed, the method will throw an error.
 
 ## 4. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.
