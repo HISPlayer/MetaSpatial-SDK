@@ -102,7 +102,7 @@ Once the stream is created, you can use the playback control functions provided 
 All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
 
 ## 4. Create a Stream and MediaPanel Entity
-To create as stream and MediaPanel to display video, you need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, a stream URL, and a `HISPlayerProperties` instance.
+To create as stream and MediaPanel to display video, you need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, stream URL, and `HISPlayerProperties` instance.
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
 
 Here's an example:
