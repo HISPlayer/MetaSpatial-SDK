@@ -1,6 +1,6 @@
 # Multistream Synchronization
 
-## How to Play Multiple Streams and Synchronize Each Other.
+## How to Play and Synchronize Multiple Streams
 HISPlayer supports multiple streams and each stream can synchronize with another stream.
 
 You can add multiple streams by calling `addStream` or `addStreamWithEntity` api multiple times.
