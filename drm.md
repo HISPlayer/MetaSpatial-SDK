@@ -22,9 +22,8 @@ val stream = HISStreamProperties(
         HISPlaybackStrategy.LOOP                                            // PlaybackStrategy
     )
 )
-hisPlayerManager.addStream(stream)
+hisPlayerManager.addStream(playerId, stream)
 ```
 
-Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(0)` or `hisPlayerManager.pause(0)`.
-
-All of these functions take the playerIndex as their first parameter. If an invalid index is passed, the method will throw an error.
+The API takes the playerId as their first parameter. If an invalid Id is passed, the method will throw an error.
+Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(playerId)` or `hisPlayerManager.pause(playerId)`.
