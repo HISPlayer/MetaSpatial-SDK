@@ -159,7 +159,7 @@ The SDK support local file playback.
 To add local file input your app please follow the steps.
 
 * Copy media file into "src/main/res/raw" folder.
-* Set `HISStreamEntityProperties` or `HISStreamProperties` url parameter as file name without extension. (notice: File name should be all low-cases)
+* Set `HISStreamEntityProperties` or `HISStreamProperties` url parameter as file name without extension. (notice: File name should be all lowcases)
 ```
     Real file name : MVHEVC_Video.MOV
     Android Studio copy file name : mvhevc_video.mov

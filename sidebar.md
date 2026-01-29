@@ -4,5 +4,5 @@
 - [DRM](/drm.md)
 - [FishEye Playback](/fishEye.md)
 - [Multistream Synchronization](/MultiStreamSync.md)
-- [MV-HEVC Stereoscopic playback](/MVHEVC.md)
+- [MV-HEVC Stereoscopic Playback](/MVHEVC.md)
 - [Releases](/releases.md)
