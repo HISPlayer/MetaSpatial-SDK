@@ -13,12 +13,15 @@ HISPlayer is the most advanced video streaming player for Meta Spatial SDK, supp
   * H.264 (AVC)
   * H.265 (HEVC)
   * AV1
+  * MV-HEVC
 
 ### Audio Codecs
   * AAC-LC
 
 ### Supported Local Formats
 * MP4
+* MOV
+* MKV
 
 ### Content Protection
   * Widevine DRM 
