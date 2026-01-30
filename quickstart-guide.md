@@ -53,7 +53,7 @@ hisPlayerManager.setLogLevel(LogLevel.INFO)
 ```
 
 ### 2.4 Handling HISPlayer SDK Events
-`HISPlayerManager` class invokes player related events and application should handle these event as your purpose.
+`HISPlayerManager` class invokes player related events and application should handle these event following your necessities.
 `HISPlayerEventListener` class defines events and you should override `onEvent` API.
 
 ```
