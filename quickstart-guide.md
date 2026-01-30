@@ -2,7 +2,7 @@
 This guide introduces the basic steps required to integrate and initialize playback functionality using the SDK.
 
 ## 1. Import Package
-Download the HISPlayer Meta Spatial SDK. Copy the `hisplayer-sdk-version.aar` file and place it in your project module’s libs/ directory. If that directory does not exist, create it manually.
+Download the HISPlayer Meta Spatial SDK. Copy the `hisplayer-sdk-[version].aar` file and place it in your project module’s libs/ directory. If that directory does not exist, create it manually.
 
 <p align="center">
 <img src="./images/libs-folder.jpg" style="width: 350px; height: auto;">
@@ -11,12 +11,8 @@ Download the HISPlayer Meta Spatial SDK. Copy the `hisplayer-sdk-version.aar` fi
 Then, add the following dependencies inside the `dependencies` block, in your project `build.gradle.kts` file.
 
 ```
-// HISPlayer Dependencies
-implementation(files("libs/hisplayer-sdk-1.2.0.aar"))
-implementation("androidx.media3:media3-exoplayer:1.7.1")
-implementation("androidx.media3:media3-exoplayer-hls:1.7.1")
-implementation("androidx.media3:media3-exoplayer-dash:1.7.1")
-implementation("androidx.media3:media3-ui:1.7.1")
+// HISPlayer SDK Dependencies
+implementation(files("libs/hisplayer-sdk-1.3.0.aar"))
 implementation("org.bouncycastle:bcprov-jdk16:1.45")
 implementation("androidx.annotation:annotation:1.9.1")
 ```
@@ -24,12 +20,14 @@ implementation("androidx.annotation:annotation:1.9.1")
 Finally, sync the project with Gradle files by selecting **Sync Project with Gradle Files** or using the shortcut `Ctrl + Shift + O`.
 
 ## 2. Configure HISPlayer
+### 2.1 Import HISPlayer SDK
 All public API classes of HISPlayer are located in the `com.hisplayer.sdk` package. You can import individual classes as needed, but for simplicity in this guide, we’ll import all of them using:
 
 ```
 import com.hisplayer.sdk.*
 ```
 
+### 2.2 Create HISPlayer SDK
 `HISPlayerManager` is the central class used to control the player.
 It provides all the necessary functionality for managing playback and interacting with the player.
 
@@ -47,41 +45,59 @@ catch (e: Exception) {
     Log.e(TAG, "Error creating HISPlayerManager, license key is invalid")
 }
 ```
-
+### 2.3 Set Log Level
 Once the class is instantiated, you can specify the desired log level: `DEBUG`, `INFO`, `WARNING`, `ERROR`, or `NONE`.
 
 ```
 hisPlayerManager.setLogLevel(LogLevel.INFO)
 ```
 
-### 2.1 Create HISPlayerController (Optional)
-To control the player, you only need the `HISPlayerManager` class. However, this class defines several callback functions that are triggered by specific player events. These functions can be overridden to add custom behavior depending on your app’s requirements. A list of available events is provided in the API documentation.
-
-In order to handle event callbacks, you should create a `HISPlayerController` class that extends `HISPlayerManager`, as shown below:
+### 2.4 Handling HISPlayer SDK Events
+`HISPlayerManager` class invokes player related events and application should handle these event as your purpose.
+`HISPlayerEventListener` class defines events and you should override `onEvent` API.
 
 ```
-import com.hisplayer.sdk.*
+{
+    ...
 
-/**
- * This is an example of how to expand the functionalities of HISPlayerManager
- */
-class HISPlayerController(context: Context, license: String) :
-    HISPlayerManager(context, license) {
+    // Adding event listener
+    hisPlayerManager.setEventListener(PlayerEventListener())   
 
-    // Example of override function
-    override fun eventPlaybackPlay(event: EventParams?) {
-        super.eventPlaybackPause(event)
-        Log.d(TAG, "The video has started playing")
-    }
+    inner class PlayerEventListener() : HISPlayerEventListener() {
+        override fun onEvent(eventParams: HISEventParams) {
+        val playerId = eventParams.playerId
+
+        when(eventParams.event) {
+            HISPlayerEvents.PLAYBACK_READY -> {}
+            HISPlayerEvents.PLAYLIST_CHANGE -> {}
+            HISPlayerEvents.VIDEO_SIZE_CHANGE -> {}
+            HISPlayerEvents.PLAYBACK_PLAY -> {}
+            HISPlayerEvents.PLAYBACK_PAUSE -> {}
+            HISPlayerEvents.PLAYBACK_STOP -> {}
+            HISPlayerEvents.PLAYBACK_SEEK -> {}
+            HISPlayerEvents.VOLUME_CHANGE -> {}
+            HISPlayerEvents.END_OF_PLAYLIST -> {}
+            HISPlayerEvents.ON_TRACK_CHANGE -> {}
+            HISPlayerEvents.ON_STREAM_RELEASE -> {}
+            HISPlayerEvents.TEXT_RENDER -> {}
+            HISPlayerEvents.AUTO_TRANSITION -> {}
+            HISPlayerEvents.PLAYBACK_BUFFERING -> {}
+            HISPlayerEvents.NETWORK_CONNECTED -> {}
+            HISPlayerEvents.ERROR_NETWORK_FAILED -> {}
+            HISPlayerEvents.END_OF_CONTENT -> {}
+            HISPlayerEvents.TIMELINE_UPDATED -> {}
+            HISPlayerEvents.ERROR_DECODER_INIT_FAILED,
+            HISPlayerEvents.ERROR_DECODING_FAILED -> {}
+            HISPlayerEvents.ERROR_UNKNOWN -> {}
+        }
+    }    
 }
 ```
-
-Then, in your application code, use `HISPlayerController` instead of `HISPlayerManager` directly.
 
 ## 3. Create a Stream
 To create a stream you can choose below 2 options:
 
-### Create a Stream with MediaPanel Entity
+### 3.1 Create a Stream with MediaPanel Entity
 The SDK will create a stream and automatically create a MediaPanel to display video. You need to use the `HISStreamEntityProperties` class, which requires MediaPanel properties, stream URL, and `HISPlayerProperties` instance.
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
 
@@ -89,7 +105,7 @@ Here's an example:
 
 ```
 val streamProperty = HISStreamEntityProperties(
-        "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+        "https://a.com/content_url.mp4",
         HISPlayerProperties(
             content.autoPlay,
             HISPlaybackStrategy.LOOP,
@@ -112,13 +128,11 @@ val playerEntity = hisPlayer?.addStreamWithEntity(
         hisPlayer?.setVolume(content.playerId, 0.0f)
         }
     }
-    
-playerEntity.entity.setComponents(listOf(Visible(true), Grabbable()))
 ```
 The API takes the playerId as their first parameter (`playerId` in above example). If an invalid Id is passed, the method will throw an error.
 Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(playerId)` or `hisPlayerManager.pause(playerId)`.
 
-### Create a Stream Without MediaPanel
+### 3.2 Create a Stream Without MediaPanel
 The SDK will create a stream without automatically creating MediaPanel, you need to create the MediaPanel on your application side. You need to use the `HISStreamProperties` class, which requires a `Surface`, a stream URL, and a `HISPlayerProperties` instance.
 
 The `HISPlayerProperties` class defines playback options such as autoplay and the playback strategy, specified by the `HISPlaybackStrategy` enum.
@@ -128,7 +142,7 @@ Here's an example:
 ```
 val stream = HISStreamProperties(
     surface,
-    "https://api.hisplayer.com/media/hisplayer/ce77405f-d7c8-4523-95a4-b3715ec57a12/master.m3u8?contentKey=ScrVdlMh",
+    "https://a.com/content_url.mp4",
     HISPlayerProperties(
         true,                       // Autoplay (Boolean)
         HISPlaybackStrategy.LOOP    // PlaybackStrategy
@@ -139,6 +153,19 @@ hisPlayerManager.addStream(playerId, stream)
 
 The API takes the playerId as their first parameter. If an invalid Id is passed, the method will throw an error.
 Once the stream is created, you can use the playback control functions provided by the API, such as `hisPlayerManager.play(playerId)` or `hisPlayerManager.pause(playerId)`.
+
+### 3.3 Local File Play
+The SDK support local file playback.
+To add local file input your app please follow the steps.
+
+* Copy media file into "src/main/res/raw" folder.
+* Set `HISStreamEntityProperties` or `HISStreamProperties` url parameter as file name without extension. (notice: File name should be all lowcases)
+```
+    Real file name : MVHEVC_Video.MOV
+    Android Studio copy file name : mvhevc_video.mov
+    url : mvhevc_video
+```
+
 
 ## 4. Release HISPlayer
 It is important to properly call the `hisPlayerManager.release()` method on the library before closing the application. This ensures that all internal resources are properly released.

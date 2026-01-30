@@ -1,5 +1,10 @@
 # HISPlayer Meta Spatial SDK Release Notes
 
+### Version 1.3.0
+##### January 31, 2026
+- [Added] Support MV-HEVC Stereoscopic playback.
+- [Improvement] Update HISPlayer SDK dependencies for user project build.gradle.kts file.
+
 ### Version 1.2.0
 ##### November 14, 2025
 - [Added] Support FishEye video playback.

@@ -2,6 +2,7 @@
 - [Quickstart Guide](/quickstart-guide.md)
 - [HISPlayer API](/hisplayer-apis.md)
 - [DRM](/drm.md)
-- [FishEye](/fishEye.md)
+- [FishEye Playback](/fishEye.md)
 - [Multistream Synchronization](/MultiStreamSync.md)
+- [MV-HEVC Stereoscopic Playback](/MVHEVC.md)
 - [Releases](/releases.md)
